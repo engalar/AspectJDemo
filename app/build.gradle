@@ -3,12 +3,23 @@
  */
 
 plugins {
+    id "io.freefair.aspectj" version "8.6"
     id 'buildlogic.java-application-conventions'
+}
+java {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
 }
 
 dependencies {
+	implementation "org.aspectj:aspectjrt:1.9.21.1"
+    implementation 'org.aspectj:aspectjtools:1.9.21.1'
     implementation 'org.apache.commons:commons-text'
-    implementation project(':utilities')
+    implementation files('../list/build/libs/list.jar')
+    // implementation files('../utilities/build/libs/utilities.jar')
+    // implementation project(':utilities')
+    // aspect project(":my-aspect")
+    inpath files('../utilities/build/libs/utilities.jar')
 }
 
 application {
